@@ -27,11 +27,10 @@ This project helps learners practice SQL by:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/sql-sandbox.git
-cd sql-sandbox
+git clone https://github.com/adamrossnelson/sql-sandbox.git
 ```
 
-2. Set up the learning environment:
+2. In the project folder (`cd sql-sandbox`), set up the learning environment:
 ```bash
 python build-sandbox.py
 ```
