@@ -1,6 +1,6 @@
 # SQL Learning Sandbox
 
-<img src="images/FROMAUTHOROF.png" alt="An image that reads FROM THE AUTHOR OF: With this sandbox utility you can learn all SQLite + Create, Read, Update, Delete."/>
+<img src="images/FROMTHEAUTHOROF.png" alt="An image that reads FROM THE AUTHOR OF: With this sandbox utility you can learn all SQLite + Create, Read, Update, Delete."/>
 
 A learning environment for practicing SQLite queries with example and fictional data. This project provides a structured way to learn SQL concepts through practical exercises using a pre-populated SQLite database.
 
