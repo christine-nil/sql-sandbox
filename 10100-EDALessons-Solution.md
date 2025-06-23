@@ -33,6 +33,8 @@ SELECT
 FROM mpg;
 ```
 
+Also note that sqllite will support display of column names with the command `.headers on`.
+
 ### 2. Statistics by Origin
 Task: Write a query to compare vehicle characteristics across different manufacturing origins.
 
