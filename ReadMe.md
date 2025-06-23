@@ -6,15 +6,15 @@ A learning environment for practicing SQLite queries with example and fictional 
 
 ## Overview
 
-This project helps learners practice SQL by:
-- Providing a pre-configured SQLite database with fictional data
-- Offering structured lessons and exercises
-- Allowing easy database resets for experimentation
-- Focusing on real-world-like scenarios with practical examples
+This project helps learners practice SQL with:
+- A pre-configured SQLite database with fictional data
+- Structured lessons and exercises
+- Easy database resets for experimentation
+- Real-world-like scenarios + practical examples
 
 ## Getting Started
 
-<img src="images/EVERYONELOVES.png" alt="An image that reads Why Everyone Lives SQLite. No Server Setup, It Just Works, Helps You Think In SQL."/>
+<img src="images/EVERYONELOVES.png" alt="An image that reads Why Everyone Loves SQLite. No Server Setup, It Just Works, Helps You Think In SQL."/>
 
 ### Prerequisites
 - Python 3.7 or higher (Anaconda's Distribution Recommended)
