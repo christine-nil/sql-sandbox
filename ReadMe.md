@@ -19,8 +19,8 @@ This project helps learners practice SQL by:
 ### Prerequisites
 - Python 3.7 or higher (Anaconda's Distribution Recommended)
 - SQLite 3.x (Included With Python)
-- Git + Beginner of Basic Git Knowledge
-- Begger or Basic Python knowledge
+- Git + Beginner or Basic Git Knowledge
+- Beginner or Basic Python knowledge
 - Basic command line knowledge
 
 ### Installation
