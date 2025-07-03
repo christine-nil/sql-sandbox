@@ -17,8 +17,7 @@ Suppose we want the total of all bills in the `tips` dataset. What query would p
 We can use `SUM(total_bill)`:
 
 ```sql
-SELECT SUM(total_bill) AS total_revenue
-FROM tips;
+-- Write a sql query here
 ```
 
 This query calculates the sum of the `total_bill` column across all rows in the `tips` table. The result is a single number (the total revenue from all bills). For instance, if we execute this, we might find the total of all bills is around $4827.77. This matches what we would get by summing that column in a DataFrame or tibble.
@@ -28,9 +27,7 @@ This query calculates the sum of the `total_bill` column across all rows in the 
 We can also sum values per category. For example, from the `mpg` dataset (car fuel efficiency data), we may want the total engine displacement by number of cylinders. What query would produce this result?
 
 ```sql
-SELECT cylinders, SUM(displacement) AS total_disp
-FROM mpg
-GROUP BY cylinders;
+-- Write a sql query here
 ```
 
 Here, SQL groups the rows by the `cylinders` value and then sums the `displacement` for each group. The output will list each unique cylinder count (e.g. 4, 6, 8) alongside the sum of displacements for cars with that many cylinders. This is similar to using `.groupby('cylinders')['displacement'].sum()` in pandas. For instance, you might see results like cylinders=4 having a large total displacement due to many 4-cylinder cars, etc. (The exact numbers depend on the dataset values.)
@@ -44,11 +41,7 @@ Here, SQL groups the rows by the `cylinders` value and then sums the `displaceme
 To find out how many records are in a table, use `COUNT(*)`. What query whould show how many entries are in each of our example tables?
 
 ```sql
-SELECT 'mpg' AS dataset, COUNT(*) AS row_count FROM mpg
-UNION ALL
-SELECT 'tips', COUNT(*) FROM tips
-UNION ALL
-SELECT 'penguins', COUNT(*) FROM penguins;
+-- Write a sql query here
 ```
 
 This combined query (using `UNION ALL` to stack results) would produce a list of datasets with their total row counts. We expect to see that `tips` has 244 rows, `penguins` has 344 rows, and `mpg` has 398 rows (assuming the full MPG dataset). These counts correspond to what we know about the datasets (e.g., 244 tips records in one month, 344 penguin observations, etc.).
@@ -58,9 +51,7 @@ This combined query (using `UNION ALL` to stack results) would produce a list of
 Often we want counts per category. In SQL, we combine `COUNT()` with `GROUP BY`. For instance, in the `penguins` dataset what query will show the number of penguins birds of each species?
   
 ```sql
-SELECT species, COUNT(*) AS num_penguins
-FROM penguins
-GROUP BY species;
+-- Write a sql query here
 ```
 
 This will give a count for each species. The result should show three rows (one for each species of penguin): Adélie – 152, Gentoo – 124, Chinstrap – 68. This matches the known distribution of the Palmer penguins species in the data. In a similar way, in pandas one might do `df.groupby('species').size()` to get these counts.
@@ -76,11 +67,10 @@ This will give a count for each species. The result should show three rows (one 
 Find the average total bill amount in the `tips` dataset. What query would produce this result?
 
 ```sql
-SELECT AVG(total_bill) AS avg_bill
-FROM tips;
+-- Write a sql query here
 ```
 
-This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79**. In other words, on average people spent around \$19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
+This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79. In other words, on average people spent around \$19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
 
 ### 2. Average value with grouping
 
@@ -92,7 +82,7 @@ FROM tips
 GROUP BY day;
 ```
 
-This query returns the average bill for each day (Thursday, Friday, Saturday, Sunday). For instance, you might find that **Saturday has the highest average bill** and Friday the lowest (since Friday had fewer, possibly smaller parties). This is analogous to `df.groupby('day')['total_bill'].mean()` in pandas. Each row of the result would show a day and the average bill amount for that day.
+This query returns the average bill for each day (Thursday, Friday, Saturday, Sunday). For instance, you might find that *aturday has the highest average bill and Friday the lowest (since Friday had fewer, possibly smaller parties). This is analogous to `df.groupby('day')['total_bill'].mean()` in pandas. Each row of the result would show a day and the average bill amount for that day.
 
 ## MIN
 
@@ -103,8 +93,7 @@ This query returns the average bill for each day (Thursday, Friday, Saturday, Su
 Let’s find the smallest (`MIN`) and largest (`MAX`) total bill in the `tips` dataset. We can actually do both in one query for convenience. What query will produce this result?
 
 ```sql
-SELECT MIN(total_bill) AS min_bill, MAX(total_bill) AS max_bill
-FROM tips;
+-- Write a sql query here
 ```
 
 This will return two numbers – the minimum and maximum of the `total_bill` column. According to the data, the minimum bill was $3.07 and the maximum bill was $50.81. So the cheapest diner spent \$3.07, and the most expensive bill was \$50.81. In Python or R you’d get these with simple min/max functions on the list of total bills.
@@ -114,9 +103,7 @@ This will return two numbers – the minimum and maximum of the `total_bill` col
 We can also get the minimum of a column within each category. For example, in the `mpg` dataset, suppose we want the minimum miles-per-gallon for cars of each cylinder count. What query will produce this result?
 
 ```sql
-SELECT cylinders, MIN(mpg) AS min_mpg
-FROM mpg
-GROUP BY cylinders;
+-- Write a sql query here
 ```
 
 This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder cars have a lowest MPG around (maybe \~9 MPG), 4-cylinder cars might have a higher minimum (perhaps \~18 MPG), etc., reflecting that some big engines are gas guzzlers. This is similar to doing `df.groupby('cylinders')['mpg'].min()` in pandas.
@@ -130,20 +117,17 @@ This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder ca
 Using the same query we showed above, we already obtained the maximum total bill from the `tips` data as $50.81. We can do a separate example for variety: what is the heaviest car in the `mpg` dataset? What query would produce this result?
 
 ```sql
-SELECT MAX(weight) AS heaviest_car_weight, name
-FROM mpg;
+-- Write a sql query here
 ```
 
 In this query, `MAX(weight)` finds the highest weight value. (We include the `name` just to see which car it is – though in practice, selecting non-aggregated columns like that works if that column is functionally dependent on the max or if we use more advanced techniques like subqueries. For simplicity, assume the heaviest weight is unique so this returns the car name as well.) The result might show, for example, a weight around 5000+ lbs for some large 70s American car. In pandas you might identify this by `df['weight'].max()`.
 
 ### 2. MAX with grouping
 
-Similarly to MIN, we can find the max within categories. For instance, in the `penguins` data, we could find the **maximum bill length** for each species. What query would produce this result?
+Similarly to MIN, we can find the max within categories. For instance, in the `penguins` data, we could find the maximum bill length for each species. What query would produce this result?
 
 ```sql
-SELECT species, MAX(bill_length_mm) AS max_bill_length
-FROM penguins
-GROUP BY species;
+-- Write a sql query here
 ```
 
 This will list each species and the longest bill recorded for that species. For example, perhaps Gentoo penguins have the longest bill length among the three species. Such a query is analogous to `df.groupby('species')['bill_length_mm'].max()` in Python.
