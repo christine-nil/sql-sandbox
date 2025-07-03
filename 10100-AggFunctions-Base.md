@@ -14,8 +14,6 @@ In SQL, aggregate functions perform calculations on multiple rows of data and re
 
 Suppose we want the total of all bills in the `tips` dataset. What query would produce this result? 
 
-We can use `SUM(total_bill)`:
-
 ```sql
 -- Write a sql query here
 ```
@@ -70,7 +68,7 @@ Find the average total bill amount in the `tips` dataset. What query would produ
 -- Write a sql query here
 ```
 
-This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79. In other words, on average people spent around \$19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
+This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79. In other words, on average people spent around $19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
 
 ### 2. Average value with grouping
 
@@ -96,7 +94,7 @@ Let’s find the smallest (`MIN`) and largest (`MAX`) total bill in the `tips` d
 -- Write a sql query here
 ```
 
-This will return two numbers – the minimum and maximum of the `total_bill` column. According to the data, the minimum bill was $3.07 and the maximum bill was $50.81. So the cheapest diner spent \$3.07, and the most expensive bill was \$50.81. In Python or R you’d get these with simple min/max functions on the list of total bills.
+This will return two numbers – the minimum and maximum of the `total_bill` column. According to the data, the minimum bill was $3.07 and the maximum bill was $50.81. So the cheapest diner spent \$3.07, and the most expensive bill was $50.81. In Python or R you’d get these with simple min/max functions on the list of total bills.
 
 ### 2. Minimum value with grouping
 
@@ -106,7 +104,7 @@ We can also get the minimum of a column within each category. For example, in th
 -- Write a sql query here
 ```
 
-This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder cars have a lowest MPG around (maybe \~9 MPG), 4-cylinder cars might have a higher minimum (perhaps \~18 MPG), etc., reflecting that some big engines are gas guzzlers. This is similar to doing `df.groupby('cylinders')['mpg'].min()` in pandas.
+This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder cars have a lowest MPG around (maybe ~9 MPG), 4-cylinder cars might have a higher minimum (perhaps ~18 MPG), etc., reflecting that some big engines are gas guzzlers. This is similar to doing `df.groupby('cylinders')['mpg'].min()` in pandas.
 
 ## MAX
 

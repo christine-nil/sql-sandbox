@@ -21,6 +21,13 @@ SELECT SUM(total_bill) AS total_revenue
 FROM tips;
 ```
 
+For the expected output:
+
+```
+total_revenue
+4827.77
+```
+
 This query calculates the sum of the `total_bill` column across all rows in the `tips` table. The result is a single number (the total revenue from all bills). For instance, if we execute this, we might find the total of all bills is around $4827.77. This matches what we would get by summing that column in a DataFrame or tibble.
 
 ### 2. Sum with Grouping
@@ -31,6 +38,17 @@ We can also sum values per category. For example, from the `mpg` dataset (car fu
 SELECT cylinders, SUM(displacement) AS total_disp
 FROM mpg
 GROUP BY cylinders;
+```
+
+For the expected output:
+
+```
+cylinders|total_disp
+3|290.0
+4|22398.5
+5|435.0
+6|18324.0
+8|35536.0
 ```
 
 Here, SQL groups the rows by the `cylinders` value and then sums the `displacement` for each group. The output will list each unique cylinder count (e.g. 4, 6, 8) alongside the sum of displacements for cars with that many cylinders. This is similar to using `.groupby('cylinders')['displacement'].sum()` in pandas. For instance, you might see results like cylinders=4 having a large total displacement due to many 4-cylinder cars, etc. (The exact numbers depend on the dataset values.)
@@ -51,6 +69,15 @@ UNION ALL
 SELECT 'penguins', COUNT(*) FROM penguins;
 ```
 
+For the expected output:
+
+```
+dataset|row_count
+mpg|398
+penguins|344
+tips|244
+```
+
 This combined query (using `UNION ALL` to stack results) would produce a list of datasets with their total row counts. We expect to see that `tips` has 244 rows, `penguins` has 344 rows, and `mpg` has 398 rows (assuming the full MPG dataset). These counts correspond to what we know about the datasets (e.g., 244 tips records in one month, 344 penguin observations, etc.).
 
 ### 2. Count with grouping
@@ -63,7 +90,16 @@ FROM penguins
 GROUP BY species;
 ```
 
-This will give a count for each species. The result should show three rows (one for each species of penguin): Adélie – 152, Gentoo – 124, Chinstrap – 68. This matches the known distribution of the Palmer penguins species in the data. In a similar way, in pandas one might do `df.groupby('species').size()` to get these counts.
+For the expected output:
+
+```
+species|num_penguins
+Adelie|146
+Chinstrap|68
+Gentoo|119
+```
+
+This will give a count for each species. The result should show three rows (one for each species of penguin): Adélie – 146, Gentoo – 119, Chinstrap – 68. This matches the known distribution of the Palmer penguins species in the data. In a similar way, in pandas one might do `df.groupby('species').size()` to get these counts.
 
 **Note:** If you want to count unique values, SQL provides `COUNT(DISTINCT column)`. For example, `SELECT COUNT(DISTINCT day) FROM tips;` would tell us how many distinct days are present in the tips data (which should be 4). This is similar to using `nunique()` in pandas or `unique()` in R.
 
@@ -80,7 +116,14 @@ SELECT AVG(total_bill) AS avg_bill
 FROM tips;
 ```
 
-This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79. In other words, on average people spent around \$19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
+For the expected output:
+
+```
+avg_bill
+19.7859426229508
+```
+
+This calculates the mean of all `total_bill` values. The result is a single number. Based on the data, the average bill is about $19.79. In other words, on average people spent around $19.79 per meal. This aligns with what we’d get by computing the mean in R/Python.
 
 ### 2. Average value with grouping
 
@@ -90,6 +133,16 @@ We can make this more interesting by grouping. Suppose we want the average bill 
 SELECT day, AVG(total_bill) AS avg_bill
 FROM tips
 GROUP BY day;
+```
+
+For the expected output:
+
+```
+day|avg_bill
+Fri|17.1515789473684
+Sat|20.4413793103448
+Sun|21.41
+Thur|17.6827419354839
 ```
 
 This query returns the average bill for each day (Thursday, Friday, Saturday, Sunday). For instance, you might find that Saturday has the highest average bill and Friday the lowest (since Friday had fewer, possibly smaller parties). This is analogous to `df.groupby('day')['total_bill'].mean()` in pandas. Each row of the result would show a day and the average bill amount for that day.
@@ -107,7 +160,14 @@ SELECT MIN(total_bill) AS min_bill, MAX(total_bill) AS max_bill
 FROM tips;
 ```
 
-This will return two numbers – the minimum and maximum of the `total_bill` column. According to the data, the minimum bill was $3.07 and the maximum bill was $50.81. So the cheapest diner spent \$3.07, and the most expensive bill was \$50.81. In Python or R you’d get these with simple min/max functions on the list of total bills.
+For the expected output:
+
+```
+min_bill|max_bill
+3.07|50.81
+```
+
+This will return two numbers – the minimum and maximum of the `total_bill` column. According to the data, the minimum bill was $3.07 and the maximum bill was $50.81. So the cheapest diner spent \$3.07, and the most expensive bill was $50.81. In Python or R you’d get these with simple min/max functions on the list of total bills.
 
 ### 2. Minimum value with grouping
 
@@ -119,7 +179,18 @@ FROM mpg
 GROUP BY cylinders;
 ```
 
-This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder cars have a lowest MPG around (maybe \~9 MPG), 4-cylinder cars might have a higher minimum (perhaps \~18 MPG), etc., reflecting that some big engines are gas guzzlers. This is similar to doing `df.groupby('cylinders')['mpg'].min()` in pandas.
+For the expected output:
+
+```
+cylinders|min_mpg
+3|18.0
+4|18.0
+5|20.3
+6|15.0
+8|9.0
+```
+
+This yields the lowest MPG value for each cylinder group. Perhaps, 8-cylinder cars have a lowest MPG around (maybe ~9 MPG), 4-cylinder cars might have a higher minimum (perhaps ~18 MPG), etc., reflecting that some big engines are gas guzzlers. This is similar to doing `df.groupby('cylinders')['mpg'].min()` in pandas.
 
 ## MAX
 
@@ -134,6 +205,13 @@ SELECT MAX(weight) AS heaviest_car_weight, name
 FROM mpg;
 ```
 
+For the expected output:
+
+```
+heaviest_car_weight|name
+5140|pontiac safari (sw)
+```
+
 In this query, `MAX(weight)` finds the highest weight value. (We include the `name` just to see which car it is – though in practice, selecting non-aggregated columns like that works if that column is functionally dependent on the max or if we use more advanced techniques like subqueries. For simplicity, assume the heaviest weight is unique so this returns the car name as well.) The result might show, for example, a weight around 5000+ lbs for some large 70s American car. In pandas you might identify this by `df['weight'].max()`.
 
 ### 2. MAX with grouping
@@ -144,6 +222,15 @@ Similarly to MIN, we can find the max within categories. For instance, in the `p
 SELECT species, MAX(bill_length_mm) AS max_bill_length
 FROM penguins
 GROUP BY species;
+```
+
+For the expected output:
+
+```
+species|max_bill_length
+Adelie|46.0
+Chinstrap|58.0
+Gentoo|59.6
 ```
 
 This will list each species and the longest bill recorded for that species. For example, perhaps Gentoo penguins have the longest bill length among the three species. Such a query is analogous to `df.groupby('species')['bill_length_mm'].max()` in Python.
