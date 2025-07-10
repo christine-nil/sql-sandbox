@@ -22,6 +22,7 @@ This project helps learners practice SQL with:
 - Git + Beginner or Basic Git Knowledge
 - Beginner or Basic Python knowledge
 - Basic command line knowledge
+- Basic SQL query knowledge
 
 ### Installation
 
@@ -29,12 +30,14 @@ This project helps learners practice SQL with:
 ```bash
 git clone https://github.com/adamrossnelson/sql-sandbox.git
 ```
+This create a copy of the repository in your local PC.
 
 2. In the project folder (`cd sql-sandbox`), set up the learning environment:
 ```bash
 python build-sandbox.py
 ```
 This will create and populate your SQLite database with fictional data.
+NOTICE: The 'mpg' dataset is from a package for python called 'seaborn'. If you encounter an error message related to this, go ahead and type 'pip install seaborn'.
 
 ## Usage
 
@@ -43,6 +46,7 @@ If you want to start fresh or reset your database to its original state:
 ```bash
 python reset-sandbox.py
 ```
+Don't need to execute this if it's your first time starting this.
 
 ### Quick Start Example
 After setting up your environment, you can start exploring the data:
@@ -51,11 +55,14 @@ After setting up your environment, you can start exploring the data:
 ```bash
 sqlite3 sandbox.db
 ```
+If your terminal got stuck, type 'sqlite3 --version' and press 'Enter' to check if 'sqlite3' is correctly installed.
+If it's still stuck, restart your terminal or PC.
 
 2. Once in SQLite, you can see available tables:
 ```sql
 .tables
 ```
+Databases consist of tables, and this shows a list of all available tables in this database.
 
 3. View the structure of the mpg table:
 ```sql
@@ -69,6 +76,8 @@ FROM mpg
 ORDER BY mpg DESC
 LIMIT 5;
 ```
+If everything is going right, you would see the following result in your terminal.
+<img src="images/result1.jpg">
 
 5. Return to system cli / terminal:
 ```sql
