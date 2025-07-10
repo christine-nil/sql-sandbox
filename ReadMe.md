@@ -22,7 +22,7 @@ This project helps learners practice SQL with:
 - Git + Beginner or Basic Git Knowledge
 - Beginner or Basic Python knowledge
 - Basic command line knowledge
-- Basic SQL query knowledge
+- Basic understanding of SQL queries
 
 ### Installation
 
@@ -30,14 +30,17 @@ This project helps learners practice SQL with:
 ```bash
 git clone https://github.com/adamrossnelson/sql-sandbox.git
 ```
-This creates a copy of the repository in your local PC.  
+This command creates a local copy of the repository on your computer.
 
 2. In the project folder (`cd sql-sandbox`), set up the learning environment:
 ```bash
 python build-sandbox.py
 ```
-This will create and populate your SQLite database with fictional data.   
-**NOTICE**: The `mpg` dataset is from a package for python called `seaborn`. If you encounter an error message related to this, go ahead and type `pip install seaborn`.
+This will create and populate the SQLite database with fictional data.   
+**Note**: The `mpg` dataset comes from the `seaborn` library in pyhton. If you encounter an error related to this, install the library by running:  
+```bash
+pip install seaborn
+```
 
 ## Usage
 
@@ -46,7 +49,7 @@ If you want to start fresh or reset your database to its original state:
 ```bash
 python reset-sandbox.py
 ```
-Don't need to execute this if it's your first time starting this.
+**Note**: You do not need to run this if you're using the sandbox for the first time.
 
 ### Quick Start Example
 After setting up your environment, you can start exploring the data:
@@ -54,9 +57,12 @@ After setting up your environment, you can start exploring the data:
 1. Open SQLite command line interface:
 ```bash
 sqlite3 sandbox.db
+```  
+**Note**: If the terminal does not respond after running the command, try checking whether SQLite is properly installed by running:  
+```bash
+sqlite3 --version
 ```
-If your terminal got stuck, type `sqlite3 --version` and press `Enter` to check if `sqlite3` is correctly installed.  
-If it's still stuck, restart your terminal or PC.
+If you still experience issues, try restarting your terminal or computer.
 
 2. Once in SQLite, you can see available tables:
 ```sql
