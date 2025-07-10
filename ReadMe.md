@@ -58,7 +58,8 @@ After setting up your environment, you can start exploring the data:
 ```bash
 sqlite3 sandbox.db
 ```  
-**Note**: If the terminal does not respond after running the command, try checking whether SQLite is properly installed by running:  
+**Note**: If the terminal does not respond after running the command,   
+try checking whether SQLite is properly installed by running:  
 ```bash
 sqlite3 --version
 ```
