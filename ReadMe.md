@@ -83,7 +83,7 @@ ORDER BY mpg DESC
 LIMIT 5;
 ```
 If everything is going right, you would see the following result in your terminal.  
-<img src="images/demo1.png">
+<img src="images/demo1.png" width="400" height="250">
 
 5. Return to system cli / terminal:
 ```sql
