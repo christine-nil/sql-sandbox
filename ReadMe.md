@@ -30,14 +30,15 @@ This project helps learners practice SQL with:
 ```bash
 git clone https://github.com/adamrossnelson/sql-sandbox.git
 ```
-This create a copy of the repository in your local PC.
+This creates a copy of the repository in your local PC.  
 
 2. In the project folder (`cd sql-sandbox`), set up the learning environment:
 ```bash
 python build-sandbox.py
 ```
-This will create and populate your SQLite database with fictional data.
-NOTICE: The 'mpg' dataset is from a package for python called 'seaborn'. If you encounter an error message related to this, go ahead and type 'pip install seaborn'.
+This will create and populate your SQLite database with fictional data.   
+NOTICE: The 'mpg' dataset is from a package for python called 'seaborn'.    
+If you encounter an error message related to this, go ahead and type 'pip install seaborn'.
 
 ## Usage
 
