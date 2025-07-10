@@ -37,8 +37,7 @@ This creates a copy of the repository in your local PC.
 python build-sandbox.py
 ```
 This will create and populate your SQLite database with fictional data.   
-NOTICE: The 'mpg' dataset is from a package for python called 'seaborn'.    
-If you encounter an error message related to this, go ahead and type 'pip install seaborn'.
+**NOTICE**: The `mpg` dataset is from a package for python called `seaborn`. If you encounter an error message related to this, go ahead and type `pip install seaborn`.
 
 ## Usage
 
@@ -56,7 +55,7 @@ After setting up your environment, you can start exploring the data:
 ```bash
 sqlite3 sandbox.db
 ```
-If your terminal got stuck, type 'sqlite3 --version' and press 'Enter' to check if 'sqlite3' is correctly installed.
+If your terminal got stuck, type `sqlite3 --version` and press `Enter` to check if `sqlite3` is correctly installed.  
 If it's still stuck, restart your terminal or PC.
 
 2. Once in SQLite, you can see available tables:
@@ -77,7 +76,7 @@ FROM mpg
 ORDER BY mpg DESC
 LIMIT 5;
 ```
-If everything is going right, you would see the following result in your terminal.
+If everything is going right, you would see the following result in your terminal.  
 <img src="images/result1.jpg">
 
 5. Return to system cli / terminal:
